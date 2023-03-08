@@ -170,6 +170,17 @@
         const startDate = document.getElementById("start-date").value;
         const endDate = document.getElementById("end-date").value;
         const description = document.getElementById("description").value
+        
+      function generateRandomString(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+    
+    const confirmationNumber = generateRandomString(7);
 
         const formData = {
           "Ticket Number": ticketNumber,
@@ -179,7 +190,8 @@
           "Number Of People": numPeople,
           "Start Date": startDate,
           "End Date": endDate,
-          "Description": description
+          "Description": description,
+          "Confirmation Number": confirmationNumber
         };
 
         const popupContent = Object.entries(formData)
