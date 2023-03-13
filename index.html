@@ -117,7 +117,7 @@
     </style>
   </head>
   <body>
-    <form>
+    <form id = 'EasyDrive-form'>
       <h1>
         <img src="easydrive-logo.jpg" alt="Easy Drive">
       </h1>
@@ -158,6 +158,8 @@
       <input type="text" id="description" name="description">
 
       <button type="button" onclick="displayFormData()">Update Reservation</button>
+      
+      <button type="button" value = "submit" id = "btnsubmit" onclick="submitForm()">Reset Form</button>
     </form>
 
     <script>
@@ -199,6 +201,10 @@
           .join("\n");
 
         alert(popupContent);
+      }
+      
+      function submitForm() {
+        document.getElementById("EasyDrive-form").reset();
       }
     </script>
   </body>
