@@ -122,44 +122,44 @@
         <img src="easydrive-logo.jpg" alt="Easy Drive">
       </h1>
       
-      <label for="ticket-number">Ticket Number/Numéro De Billet:</label>
+      <label for="ticket-number">Numéro De Billet:</label>
       <input type="text" id="ticket-number" name="ticket-number">
 
-      <label for="contact-driver">Contact Driver:</label>
+      <label for="contact-driver">Typologie:</label>
       <select id="contact-driver"name="contact-driver">
-        <option value="">Select an option</option>
-        <option value="Information Request">Information Request</option>
-        <option value="Accident">Accident</option>
-        <option value="Booking Modification">Booking Modification</option>
-        <option value="Cancel Booking">Cancel Booking</option>
-        <option value="Lost Items">Lost Items</option>
+        <option value="">Choisir Une Option</option>
+        <option value="Information Request">Demande D'Information</option>
+        <option value="Accident">Sinistre</option>
+        <option value="Booking Modification">Modification De La Réservation</option>
+        <option value="Cancel Booking">Annulation De Réservation</option>
+        <option value="Lost Items">Objets Oubliés</option>
       </select>
 
-      <label for="booking-number">Booking Number:</label>
+      <label for="booking-number">N° De Réservation:</label>
       <input type="text" id="booking-number" name="booking-number">
 
       <fieldset>
-        <legend>Car Type:</legend>
-        <label><input type="radio" name="car-type" value="Category A"> Category A</label>
-        <label><input type="radio" name="car-type" value="Category B"> Category B</label>
-        <label><input type="radio" name="car-type" value="Category C"> Category C</label>
+        <legend>Type de Voiture:</legend>
+        <label><input type="radio" name="car-type" value="Category A"> Catégorie A</label>
+        <label><input type="radio" name="car-type" value="Category B"> Catégorie B</label>
+        <label><input type="radio" name="car-type" value="Category C"> Catégorie C</label>
       </fieldset>
 
-      <label for="number-people">Number Of People:</label>
+      <label for="number-people">Nombre De Personnes:</label>
       <input type="text" id="number-people" name="number-people">
 
-      <label for="start-date">Start Date:</label>
+      <label for="start-date">Date De Début De Location:</label>
       <input type="datetime-local" id="start-date" name="start-date">
 
-      <label for="end-date">End Date:</label>
+      <label for="end-date">Fin De Location:</label>
       <input type="datetime-local" id="end-date" name="end-date">
 
       <label for="description">Description:</label>
       <input type="text" id="description" name="description">
 
-      <button type="button" onclick="displayFormData()">Update Reservation</button>
+      <button type="button" onclick="displayFormData()">Mettre À Jour La Réservation</button>
       
-      <button type="button" value = "submit" id = "btnsubmit" onclick="submitForm()">Reset Form</button>
+      <button type="button" value = "submit" id = "btnsubmit" onclick="submitForm()">Formulaire De Réinitialisation</button>
     </form>
 
     <script>
@@ -193,7 +193,7 @@
           //"Start Date": startDate,
           //"End Date": endDate,
           //"Description": description,
-          "Confirmation Number": confirmationNumber
+          "Numéro De Confirmation": confirmationNumber
         };
 
         const popupContent = Object.entries(formData)
