@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>EasyDrive</title>
+    <style>
+      /* Global styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background-image: url(carlineup.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+         background-position: center center;
+      }
+      h1 {
+        margin-top: 0;
+        text-align: center;
+        background-color: #ffffff;
+        color: #ffffff;
+        padding: 20px;
+      }
+      form {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 20px #999999;
+        border-radius: 10px;
+      }
+
+      /* Form styles */
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #666666;
+      }
+      input[type="text"],
+      input[type="email"],
+      select {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+        font-size: 16px;
+      }
+      input[type="date"],
+      input[type="datetime-local"] {
+        display: block;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+      fieldset {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+      }
+      legend {
+        font-weight: bold;
+        color: #0072c6;
+      }
+      button[type="button"] {
+        background-color: #0072c6;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      button[type="button"]:hover {
+        background-color: #048df7;
+      }
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .form-row > div {
+        flex-basis: calc(50% - 10px);
+      }
+      .form-row > div:last-child {
+        flex-basis: 100%;
+        margin-top: 20px;
+      }
+
+      /* EasyDrive styles */
+      h1 {
+        font-size: 48px;
+        letter-spacing: 3px;
+        margin-bottom: 40px;
+      }
+      label {
+        font-size: 20px;
+      }
+      input[type="text"],
+      input[type="email"],
+      select {
+        font-size: 20px;
+      }
+      input[type="date"],
+      input[type="datetime-local"] {
+        font-size: 20px;
+      }
+      button[type="button"] {
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id = 'EasyDrive-form'>
+      <h1>
+        <img src="easydrive-logo.jpg" alt="Easy Drive">
+      </h1>
+      
+      <label for="ticket-number">Ticket Number:</label>
+      <input type="text" id="ticket-number" name="ticket-number">
+
+      <label for="contact-driver">Contact Driver:</label>
+      <select id="contact-driver"name="contact-driver">
+        <option value="">Choose An Option</option>
+        <option value="Information Request">Information Request</option>
+        <option value="Accident">Accident</option>
+        <option value="Booking Modification">Booking Modification</option>
+        <option value="Cancel Booking">Cancel Booking</option>
+        <option value="Lost Items">Lost Items</option>
+      </select>
+
+      <label for="booking-number">Booking Number:</label>
+      <input type="text" id="booking-number" name="booking-number">
+
+      <fieldset>
+        <legend>Car Type:</legend>
+        <label><input type="radio" name="car-type" value="Category A"> Category A</label>
+        <label><input type="radio" name="car-type" value="Category B"> Category B</label>
+        <label><input type="radio" name="car-type" value="Category C"> Category C</label>
+      </fieldset>
+
+      <label for="number-people">Number of People:</label>
+      <input type="text" id="number-people" name="number-people">
+
+      <label for="start-date">Start Date:</label>
+      <input type="text" id="start-date" name="start-date">
+
+      <label for="end-date">End Date:</label>
+      <input type="text" id="end-date" name="end-date">
+
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description">
+
+      <button type="button" onclick="displayFormData()">Update Reservation</button>
+      
+      <button type="button" value = "submit" id = "btnsubmit" onclick="submitForm()">Reset Form</button>
+    </form>
+
+    <script>
+      function displayFormData() {
+        const ticketNumber = document.getElementById("ticket-number").value;
+        const contactDriver = document.getElementById("contact-driver").value;
+        const bookingNumber = document.getElementById("booking-number").value;
+        const carType = document.querySelector('input[name="car-type"]:checked').value;
+        const numPeople = document.getElementById("number-people").value;
+        const startDate = document.getElementById("start-date").value;
+        const endDate = document.getElementById("end-date").value;
+        const description = document.getElementById("description").value
+        
+      function generateRandomString(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+    
+    const confirmationNumber = generateRandomString(8);
+
+        const formData = {
+          //"Ticket Number": ticketNumber,
+          //"Contact Driver": contactDriver,
+          //"Booking Number": bookingNumber,
+          //"Car Type": carType,
+          //"Number Of People": numPeople,
+          //"Start Date": startDate,
+          //"End Date": endDate,
+          //"Description": description,
+          "Confirmation Number": confirmationNumber
+        };
+
+        const popupContent = Object.entries(formData)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join("\n");
+
+        alert(popupContent);
+      }
+      
+      function submitForm() {
+        document.getElementById("EasyDrive-form").reset();
+      }
+    </script>
+  </body>
+</html>
